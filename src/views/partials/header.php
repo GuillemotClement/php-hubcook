@@ -9,7 +9,8 @@
       <li><a href="/">Accueil</a></li>
     </ul>
   </nav>
-  <ul>
-    <li><a href="/login">Login</a></li>
+  <ul class="nav-action">
+    <li><a href="/login"><i class="fa-solid fa-user"></i></a></li>
+    <li><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a></li>
   </ul>
 </header>

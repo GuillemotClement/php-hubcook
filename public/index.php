@@ -1,25 +1,23 @@
 <?php
+
+session_start();
 const BASE_PATH = __DIR__ . '/../';
+require BASE_PATH."src/utils/helpers.php";
+require BASE_PATH."src/utils/routing.php";
 
-function dd(mixed $value):void
-{
-  echo '<pre>';
-  var_dump($value);
-  echo '</pre>';
-  die();
+
+p("Session");
+p($_SESSION);
+
+$uri = $_SERVER["REQUEST_URI"];
+
+if($uri === "/login"){
+  require getController("authenticate/login");
+}else if($uri === "/logout"){
+  logout();
+}else{
+  require getController("homepage");
 }
 
-function getController(string $nameController): string
-{
-  return BASE_PATH . "src/controllers/$nameController.controller.php";
-}
-
-function getView(string $nameView): string
-{
-  return BASE_PATH . "src/views/$nameView.view.php";
-}
 
 
-
-
-require getController("homepage");
