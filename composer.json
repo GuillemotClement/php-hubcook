@@ -1,0 +1,15 @@
+{
+    "name": "clement/php-hubcook",
+    "autoload": {
+        "psr-4": {
+            "Clement\\PhpHubcook\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "GuillemotClement",
+            "email": "guillemot.clement@protonmail.com"
+        }
+    ],
+    "require": {}
+}

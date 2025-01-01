@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+:root {
+  --font-text: "Roboto", serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: auto;
+}
+
+html {
+  font-family: var(--font-text);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem 1rem;
+}
+header .icone {
+  display: flex;
+  align-items: center;
+}
+header .icone--img {
+  height: 60px;
+  width: 100%;
+  margin-right: 0.6rem;
+}
+header .icone--text {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 1rem;
+  border-top: 1px solid black;
+}
+footer .nav-social {
+  display: flex;
+  column-gap: 1.3rem;
+}
+
+/*# sourceMappingURL=style.css.map */
