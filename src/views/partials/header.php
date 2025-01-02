@@ -12,7 +12,7 @@
   <?php if(!isset($_SESSION['username'])): ?>
     <ul class="nav-action">
       <li><a href="/login"><i class="fa-solid fa-user"></i></a></li>
-      <li><a href="/">Register</a></li>
+      <li><a href="/register">Register</a></li>
     </ul>
   <?php else : ?>
     <ul class="nav-action">

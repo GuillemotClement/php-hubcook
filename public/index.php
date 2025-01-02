@@ -11,6 +11,8 @@ if($uri === "/login"){
   require getController("authenticate/login");
 }else if($uri === "/logout"){
   logout();
+}else if($uri === "/register"){
+  require getController("authenticate/register");
 }else{
   require getController("homepage");
 }
