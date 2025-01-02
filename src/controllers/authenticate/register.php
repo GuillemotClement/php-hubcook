@@ -7,7 +7,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
   $confirmPassword = $_REQUEST['confirmPassword'];
 
   if($password === $confirmPassword){
-    $sql = "INSERT INTO user (user_username, user_email, user_password) VALUES (:username, :email, :password)";
+    $sql = "INSERT INTO user (user_username, user_email, user_password, role_id) VALUES (:username, :email, :password, 2)";
     $params = [
       'username' => $username,
       'email' => $email,
