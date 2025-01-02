@@ -17,12 +17,9 @@ $db = new Database(
 );
 
 $sql = "SELECT * FROM user";
-$statement = $db->connect()->prepare($sql);
-$statement->execute();
-$user = $statement->fetch();
 
-p($user);
-
+//$user = $db->fetchOne($sql);
+//p($user);
 
 $uri = $_SERVER["REQUEST_URI"];
 

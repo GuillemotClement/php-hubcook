@@ -20,7 +20,7 @@ class Database
   }
 
   //méthode de connexion à la DB
-  public function connect(): PDO
+  protected function connect(): PDO
   {
     if($this->connexion === null){
       try{
@@ -32,4 +32,24 @@ class Database
     return $this->connexion;
   }
 
+  protected function query(string $sql,array $params = []): mixed
+  {
+    try{
+      $statement = $this->connect()->prepare($sql);
+      $statement->execute($params);
+      return $statement;
+    }catch(PDOException $e){
+      throw new PDOException("Erreur d'exécution de la requête :" . $e->getMessage());
+    }
+  }
+
+  public function fetchAll(string $sql, array $params = []): array
+  {
+    return $this->query($sql, $params)->fetchAll();
+  }
+
+  public function fetchOne(string $sql, array $params = []): array
+  {
+    return $this->query($sql, $params)->fetch();
+  }
 }
