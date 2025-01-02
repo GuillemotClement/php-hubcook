@@ -20,7 +20,7 @@ class Database
   }
 
   //méthode de connexion à la DB
-  protected function connect(): PDO
+  public function connect(): PDO
   {
     if($this->connexion === null){
       try{
@@ -52,4 +52,6 @@ class Database
   {
     return $this->query($sql, $params)->fetch();
   }
+
+
 }
