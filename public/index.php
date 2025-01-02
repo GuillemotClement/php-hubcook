@@ -1,9 +1,28 @@
 <?php
 
+use Hubcook\Core\Database;
+
 session_start();
 const BASE_PATH = __DIR__ . '/../';
+require BASE_PATH."vendor/autoload.php";
+
 require BASE_PATH."src/utils/helpers.php";
 require BASE_PATH."src/utils/routing.php";
+
+
+$db = new Database(
+  "mysql:host=localhost;dbname=hubcook_php;charset=utf8mb4",
+  "root",
+  ""
+);
+
+$sql = "SELECT * FROM user";
+$statement = $db->connect()->prepare($sql);
+$statement->execute();
+$user = $statement->fetch();
+
+p($user);
+
 
 $uri = $_SERVER["REQUEST_URI"];
 
