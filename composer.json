@@ -2,7 +2,7 @@
     "name": "clement/php-hubcook",
     "autoload": {
         "psr-4": {
-            "Clement\\PhpHubcook\\": "src/"
+            "Hubcook\\": "src/"
         }
     },
     "authors": [

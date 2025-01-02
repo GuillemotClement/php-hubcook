@@ -24,6 +24,11 @@ a {
 
 :root {
   --font-text: "Roboto", serif;
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --rounded-md: 0.375rem;
+  --primary: #3b82f6;
+  --primary-1: #2563eb;
+  --white: white;
 }
 
 body {
@@ -74,6 +79,30 @@ footer {
 footer .nav-social {
   display: flex;
   column-gap: 1.3rem;
+}
+
+.btn {
+  padding: 1rem 1.5rem;
+  border-radius: var(--rounded-md);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  border: none;
+}
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+.btn-primary:hover {
+  background-color: var(--primary-1);
+}
+.btn-secondary {
+  background: var(--white);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+.btn-secondary:hover {
+  color: var(--primary-1);
+  border: 1px solid var(--primary-1);
 }
 
 /*# sourceMappingURL=style.css.map */

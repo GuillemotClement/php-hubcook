@@ -23,8 +23,8 @@ require getPartial("header");
         <input type="password" name="confirmPassword">
       </div>
       <div class="">
-        <a type="button">Retour</a>
-        <button type="submit">Login</button>
+        <a type="button" class="btn btn-secondary">Retour</a>
+        <button type="submit" class="btn btn-primary">Login</button>
       </div>
     </form>
   </main>

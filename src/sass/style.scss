@@ -3,5 +3,7 @@
 @import "layout";
 @import "theme";
 
-@import "components/header";
-@import "components/footer";
+@import "partials/header";
+@import "partials/footer";
+
+@import "components/button";
