@@ -19,6 +19,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 }
 
 
-$page = "login page";
+$page = "Connexion";
 
 require getView("authenticate/login");
