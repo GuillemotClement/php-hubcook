@@ -51,8 +51,9 @@ class Router
       }
     }
 
+    //si pas de match alors on retourne la page d'erreur
     http_response_code(404);
-    require BASE_PATH."src/controllers/notFound.php";
+    require BASE_PATH . "src/controllers/error/404.php";
     exit();
   }
 
