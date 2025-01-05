@@ -3,6 +3,9 @@
     "sass": "^1.83.0"
   },
   "scripts": {
-    "sass": "sass --watch src/sass/style.scss public/css/style.css"
+    "dev": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
   }
 }
