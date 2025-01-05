@@ -1,8 +1,8 @@
 <?php
 
-$page = "Homepage";
+$page = "homepage/homepage";
 
-require getView("homepage");
+require BASE_PATH."src/views/layouts/rootLayout.view.php";
 
 
 

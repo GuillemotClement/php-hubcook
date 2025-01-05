@@ -7,7 +7,7 @@ require "partials/header.php";
 
 <h1><?= $page ?></h1>
 <p>Page non trouvée</p>
-<a href="" class="btn">Retour</a>
+<a href="/" class="btn">Retour</a>
 
 <?php
 

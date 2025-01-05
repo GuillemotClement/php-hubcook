@@ -6,6 +6,11 @@ class Router
 {
   public array $routes;
 
+  public function requireController(string $path): void
+  {
+    require BASE_PATH."src/controllers/$path.php";
+  }
+
   public function addRoute(string $path, string $controller, string $method): array
   {
     $this->routes[] = [
@@ -40,15 +45,15 @@ class Router
     foreach ($this->routes as $route){
       if($uri === $route['path']){
         if($method === $route['method']){
-          requireController($route['controller']);
+          $this->requireController($route['controller']);
           exit();
         }
-      }else{
-        http_response_code(404);
-        require BASE_PATH."src/controllers/notFound.php";
-        exit();
       }
     }
+
+    http_response_code(404);
+    require BASE_PATH."src/controllers/notFound.php";
+    exit();
   }
 
   /**
