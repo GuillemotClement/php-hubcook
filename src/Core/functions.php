@@ -5,11 +5,6 @@
 * @param string $url
 * @return string
 */
-function getPath(string $url):string
-{
-  return parse_url($url)['path'];
-}
-
 
 
 
@@ -18,17 +13,23 @@ function requireController(string $path): void
   require BASE_PATH."src/controllers/$path.php";
 }
 
-function routeTo(string $url, array $routes, string $method)
-{
-  $uri = getPath($url);
 
-  foreach ($routes as $route) {
-    if(in_array($uri, $route)){
-      if($method === $route['method']){
-        requireController($route['controller']);
-      }
-    }else{
-      requireController('notfound');
-    }
-  }
+
+function addRoute(string $path, string $controller, string $method, array $routes)
+{
+  $routes[] = [
+    "path" => $path,
+    "controller" => $controller,
+    "method" => $method
+  ];
+  return $routes;
+};
+
+function routeGet(string $path, string $controller, $routes){
+  addRoute($path, $controller, "GET", $routes);
 }
+
+// function routeGet()
+// function routePost()
+// function routePut()
+// function routeDelete()
