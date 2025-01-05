@@ -2,6 +2,6 @@
   <h1 class="text-3xl font-bold mb-4">404 - Not Found</h1>
   <p>Le page demandée n'existe pas</p>
   <div class="mt-4">
-    <a href="/" class="btn">Retour</a>
+    <a href="/" class="btn btn-neutral">Retour</a>
   </div>
 </div>
