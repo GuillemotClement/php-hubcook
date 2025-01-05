@@ -4,7 +4,7 @@ require "partials/head.php";
 require "partials/header.php";
 
 ?>
-<main>
+<main class="flex-1">
   <h1><?= $page ?></h1>
 </main>
 

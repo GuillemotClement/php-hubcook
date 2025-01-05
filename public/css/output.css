@@ -1337,6 +1337,14 @@ html {
   height: 2.5rem;
 }
 
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -1352,6 +1360,10 @@ html {
 .gap-x-2 {
   -moz-column-gap: 0.5rem;
        column-gap: 0.5rem;
+}
+
+.border-t {
+  border-top-width: 1px;
 }
 
 .px-6 {
