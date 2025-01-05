@@ -6,9 +6,12 @@
 
 ## Stack
 
-- HTMX
+### Front-End
+
 - Tailwind
 - DaisyUi
-- AlpineJs
+
+### Back
+
 - PHP
-- MySQL
+- PostgreSQL
