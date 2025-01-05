@@ -16,50 +16,15 @@ $db = new Database(
   ""
 );
 
-$uri = getUri($_SERVER['REQUEST_URI']);
 
 $routes = [
   [
     "path" => "/",
-    "controller" => BASE_PATH."src/homepage.php",
+    "controller" => "homepage",
     "method" => "GET"
   ],
 ];
 
-
-
-
-
-
-
-
-//function getUri($_SERVER['REQUEST_URI']){
-//
-//  return $uri
-//}
-//implémentation du router
-
-//récupérer de l'uri depuis l'url
-
-//créer un tableau contenant les différents routes
-
-//router vers le bon controller & méthode
-
-
-
-
-
-$uri = $_SERVER["REQUEST_URI"];
-
-if($uri === "/login"){
-  require getController("authenticate/login");
-}else if($uri === "/logout"){
-  logout();
-}else if($uri === "/register"){
-  require getController("authenticate/register");
-}else{
-  require getController("homepage");
-}
-
-
+// p($_SERVER['REQUEST_METHOD']);
+routeTo($_SERVER['REQUEST_URI'], $routes, $_SERVER['REQUEST_METHOD']);
 

@@ -24,3 +24,4 @@
   </ul>
 
 </header>
+<main class="flex-1 container mx-auto border">
