@@ -9,6 +9,10 @@
       <label for="" class="label">Mot de passe</label>
       <input type="password" name="password" class="input input-bordered w-full max-w-xs">
     </div>
+    <div class="mt-2 flex flex-col gap-y-1">
+      <a href="/register" class="text-xs italic text-blue-500 hover:underline">Je n'ai pas encore de compte</a>
+      <a href="#" class="text-xs italic text-blue-500 hover:underline hover:text-red-500" title="En cours de développement">Mot de passe oublié</a>
+    </div>
     <div class="flex justify-between px-4 my-4">
       <a class="btn btn-neutral" href="/">Retour</a>
       <button type="submit" class="btn btn-primary">Login</button>

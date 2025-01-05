@@ -20,13 +20,19 @@ require BASE_PATH."src/Core/routes.php";
 
 //stocker les variable dans un fichier env
 $db = new Database(
-  "mysql:host=localhost;dbname=hubcook_php;charset=utf8mb4",
-  "root",
+  "pgsql:host=localhost;port=5432;dbname=hubcook",
+  "clement",
   ""
 );
 
-//Utils::printAndDie($_SERVER['REQUEST_METHOD']);
+$sql = "SELECT * FROM recipe";
 
+$recipe = $db->fetchAll($sql);
+Utils::printValue($recipe);
+
+
+Utils::printValue($db);
+//Utils::printAndDie($_SERVER);
 
 $url = $_SERVER['REQUEST_URI'];
 $method = $_SERVER['REQUEST_METHOD'];
