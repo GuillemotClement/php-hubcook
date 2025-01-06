@@ -4,54 +4,41 @@ namespace Hubcook\Core;
 
 use PDO;
 use PDOException;
+use PDOStatement;
 
 class Database
 {
-  protected string $dsn;
-  protected string $user;
-  protected string $pwd;
-  protected ?PDO $connexion = null; //stockage de la connexion PDO
+    public $pdo;
 
-  public function __construct(string $dsn, string $user, string $pwd)
-  {
-    $this->dsn = $dsn;
-    $this->user = $user;
-    $this->pwd = $pwd;
-  }
-
-  //méthode de connexion à la DB
-  public function connect(): PDO
-  {
-    if($this->connexion === null){
-      try{
-        $this->connexion = new PDO($this->dsn, $this->user, $this->pwd, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC]);
-      }catch(PDOException $e){
-        throw new PDOException("Erreur de connexion :" . $e->getMessage());
-      }
+    public function __construct()
+    {
+        $this->pdo = $this->getPdo();
     }
-    return $this->connexion;
-  }
 
-  protected function query(string $sql,array $params = []): mixed
-  {
-    try{
-      $statement = $this->connect()->prepare($sql);
-      $statement->execute($params);
-      return $statement;
-    }catch(PDOException $e){
-      throw new PDOException("Erreur d'exécution de la requête :" . $e->getMessage());
+    protected function getPdo(): PDO
+    {
+        try {
+            $db = new PDO($_ENV["DSN"], $_ENV["USER_DB"], $_ENV["PWD_DB"], [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            ]);
+        } catch (PDOException $e) {
+            echo "La connexion à la base de donnée à échouée : " .
+                $e->getMessage();
+        }
+        return $db;
     }
-  }
 
-  public function fetchAll(string $sql, array $params = []): array
-  {
-    return $this->query($sql, $params)->fetchAll();
-  }
+    public function query(string $sql, array $parameters = []): PDOStatement
+    {
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($parameters);
+        return $stmt;
+    }
 
-  public function fetchOne(string $sql, array $params = []): array
-  {
-    return $this->query($sql, $params)->fetch();
-  }
-
-
+    public function fetchAll(string $table): PDOStatement
+    {
+        $sql = "SELECT * FROM $table";
+        return $this->query($sql);
+    }
 }

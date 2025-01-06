@@ -1,18 +1,18 @@
 <?php
 
+use Hubcook\Models\Recipe;
+
 $page = "Nos recettes";
+$recipe = new Recipe();
 
+$listRecip = $recipe->listRecipes();
 
-$_REQUEST _> function
-
-getRecipe($recipe){
-  $sql
-    return $recipe
+function showDataList(PDOStatement $list)
+{
+    foreach ($list as $item) {
+        printValue($item);
+    }
 }
 
-[
-  'name'=>'carbo',
-  'describ' => "fozjefuzejfiojezifoekzf"
-]
-
-require getView("recipe/listRecipe", $recipe);
+showDataList($listRecip);
+// require getView("recipe/listRecipe", $recipe);

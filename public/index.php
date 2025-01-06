@@ -3,43 +3,26 @@
 use Dotenv\Dotenv;
 use Hubcook\Core\Database;
 use Hubcook\Core\Router;
-use Hubcook\Core\Utils;
 
 session_start();
-const BASE_PATH = __DIR__ . "/../";
-require BASE_PATH . "vendor/autoload.php";
 
+const BASE_PATH = __DIR__ . "/../";
+//récupère la fonction getFile()
+require BASE_PATH . "src/Core/functions.php";
+//récupération de l'autolad
+getFile("vendor/autoload");
+
+//récupération des variables d'environnement
 $dotenv = Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
 
-Utils::printAndDie($_ENV);
-
-require BASE_PATH . "src/Core/functions.php";
-require BASE_PATH . "src/utils/routing.php";
+//initialisation de la connexion avec la classe
+$pdo = new Database();
 
 $router = new Router();
+$router->addRoute("/", "homepage", "GET");
+$router->addRoute("/recipe", "recipe/listRecipe", "GET");
+$router->addRoute("/login", "authenticate/login", "GET");
+$router->addRoute("/register", "authenticate/register", "GET");
 
-require BASE_PATH . "src/Core/routes.php";
-
-//stocker les variable dans un fichier env
-$db = new Database(
-    "pgsql:host=localhost;port=5432;dbname=hubcook",
-    "clement",
-    ""
-);
-
-// Utils::printValue($recipe);
-
-// Utils::printValue($db);
-//Utils::printAndDie($_SERVER);
-
-$url = $_SERVER["REQUEST_URI"];
-$method = $_SERVER["REQUEST_METHOD"];
-$router->routeTo($url, $method);
-
-//on ajoute une nouvelle route et on écrase l'ancien tableau contenant toutes les routes
-// $routes = addRoute($routes, '/recipe', 'recipe/listRecip', 'GET');
-//$routes = routeGet("/login", 'authenticate/login', $routes);
-
-// p($_SERVER['REQUEST_METHOD']);
-//routeTo($_SERVER['REQUEST_URI'], $routes, $_SERVER['REQUEST_METHOD']);
+$router->routeTo($_SERVER["REQUEST_URI"], $_SERVER["REQUEST_METHOD"]);
