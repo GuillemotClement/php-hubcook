@@ -5,6 +5,14 @@
             "Hubcook\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Hubcook\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit tests"
+    },
     "authors": [
         {
             "name": "GuillemotClement",
