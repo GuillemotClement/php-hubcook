@@ -1,0 +1,10 @@
+classDiagram
+    class Database {
+        +PDO pdo
+        +fetchAll(string table)
+    }
+    class RecipeModels {
+        +recipeList() PDOStatement
+        +recipeDetail(int id) PDOStatement
+    }
+    Database <|-- RecipeModels
