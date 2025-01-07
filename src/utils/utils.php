@@ -14,4 +14,3 @@ function pd(mixed $value): void
   echo '</pre>';
   die();
 }
-}
